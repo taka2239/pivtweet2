@@ -1,0 +1,23 @@
+<!-- <div class="contents row">
+  <% @tweets.each do|aaa| %>
+    <div class="content_post" style="background-image: url(<%= aaa.image %>);">
+      <%= simple_format(aaa.text) %>
+      <span class="name">
+         <a href="">
+          <span>投稿者</span><%= aaa.user.nickname %>
+        </a>
+      </span>
+    </div>
+  <% end %>
+
+  <%= paginate(@tweets) %>
+</div> -->
+
+
+<div class="contents row">
+  <% @tweets.each do |tweet| %>
+    <%= render partial: "tweet", locals: { tweet: tweet } %>
+  <% end %>
+  <%= paginate(@tweets) %>
+</div>
+
